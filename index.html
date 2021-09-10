@@ -19,7 +19,9 @@
   </head>
 
   <body>
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="/images/logo.svg" alt="SPLITTER logo" />
+    </div>
     <div class="calculator">
       <form>
         <div class="bill">
@@ -27,16 +29,19 @@
           <input type="text" id="bill" name="bill" />
         </div>
         <div class="select-tip">
-          <label>
-            <button class="tip-button" value="5%">5%</button>
-            <button class="tip-button" value="10%">10%</button>
-            <button class="tip-button" value="15%">15%</button>
-            <button class="tip-button" value="25%">25%</button>
-            <button class="tip-button" value="50%">50%</button>
-            <input type="text" id="custom" name="custom" placeholder="Custom">
-          </label>
+          <label>Select Tip</label>
+          <button class="tip-button" value="5%">5%</button>
+          <button class="tip-button" value="10%">10%</button>
+          <button class="tip-button" value="15%">15%</button>
+          <button class="tip-button" value="25%">25%</button>
+          <button class="tip-button" value="50%">50%</button>
+          <input type="text" id="custom" name="custom" placeholder="Custom">
+          
         </div>
-        <div class="number-of-people"></div>
+        <div class="number-of-people">
+          <label for="number-of-people">Number of People</label>
+          <input type="number" id="number-of-people" name="custom" placeholder="1">
+        </div>
         <div class="calculation"></div>
       </form>
     </div>
