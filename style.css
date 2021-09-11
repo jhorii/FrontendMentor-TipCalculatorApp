@@ -8,36 +8,153 @@
     --white: hsl(0, 0%, 100%)
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-
 body {
-    font-family: 'Space Mono', monospace;
     background-color: var(--light-grey-cyan);
     display: flex;
     flex-direction: column;
-    align-items: center;  
+    align-items: center;
+    padding: 0;
+    font-family: 'Space Mono', monospace;
 }
 
-body > div {
-    border: thin solid red;
+.form-section {
+    padding: 10px;
 }
 
 .logo {
-    padding: 30px;
+    padding: 45px;
 }
 
 .calculator {
     background-color: var(--white);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 25px;
+    border: thin var(--white) solid;
+    border-radius: 20px;
 }
 
-form * {
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon svg {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+}
+
+.input-with-icon input {
+    text-indent: 30px;
+}
+
+.tip-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+.tip-button, #custom {    
+    border-radius: 5px;
+}
+
+.tip-button {
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    font-weight: 700;
+    width: 100%;
+    padding: 15px 5px;
+}
+
+.tip-button:focus {
+    background-color: var(--very-dark-cyan);
+    color: var(--primary);
+}
+
+.tip-button, input, #custom {
     font-size: 24px;
+}
+
+.bill input, .select-tip input, .people input {
+    background-color: var(--lighter-grey-cyan);
+    border: none;
+    color: var(--very-dark-cyan);
+    font-weight: 700;
+    text-align: right;
+    font-size: 24px;
+    border-radius: 8px;
+    padding: 7px;
+    min-width: 0px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+input:focus {
+    border-color: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em;
 }
 
 form label {
     display: block;
+    color: var(--darker-cyan);
+    font-size: 1em;
+    font-weight: 700;
+    padding-bottom: 7px;
+}
+
+.calculation {
+    background-color: var(--very-dark-cyan);
+    border-radius: 15px; 
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+.calculation-container {
+    display: flex;
+    align-items: center;  
+}
+
+.calculation-label {
+    flex: 1;
+}
+
+.calculation-label > div {
+    padding: 3px 0;
+}
+
+.calculation-label-white {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.calculation-label-dark {
+    color: var(--dark-cyan);
+}
+
+.calculation .tip-output {
+    color: var(--primary);
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.calculation button {
+    background-color: var(--primary);
+    color: var(--very-dark-cyan);
+    font-weight: 700;
+    width: 100%;
+    padding: 15px 5px;
+    border-radius: 5px;
+    font-size: 24px;
+    border: none;
+    text-transform: uppercase;
 }
 
 .attribution { font-size: 11px; text-align: center; }
