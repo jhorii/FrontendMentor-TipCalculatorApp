@@ -51,13 +51,13 @@
               maxlength="18"
               placeholder="0.00"
               step="any"
-              onchange="updateCalculation()"
+              onchange="updateBill(value)"
             />
           </div>
         </div>
         <div class="form-section select-tip">
           <label>Select Tip %</label>
-          <div id="tip-options" data-tip-percent="0">
+          <div id="tip-options">
             <a class="tip-button" onclick="updateTipPercent(this, '0.05')">5%</a>
             <a class="tip-button" onclick="updateTipPercent(this, '0.1')">10%</a>
             <a class="tip-button" onclick="updateTipPercent(this, '0.15')">15%</a>
@@ -68,7 +68,7 @@
               id="custom-tip"
               name="custom"
               placeholder="Custom"
-              onchange="updateTipPercent(this, value)"
+              onchange="updateTipPercent(this, value / 100)"
             />
           </div>
         </div>
@@ -88,7 +88,7 @@
             value="1"
             min="0"
             step="1"
-            onchange="updateCalculation()"
+            onchange="updatePeople(value)"
           />
           </div>          
         </div>

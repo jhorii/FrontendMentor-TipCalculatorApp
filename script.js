@@ -1,35 +1,49 @@
+let calculations = {
+    bill: 0,
+    tip: 0,
+    people: 1
+};
+
+function updateBill(amount) {
+    calculations.bill = amount;
+    updateCalculation();
+}
+
 function updateTipPercent(element, amount) {
-    let currentTipPercent;
-    if (element.id == "custom-tip") {
-        amount = amount / 100;
-    }
-    document.getElementById("tip-options").dataset.tipPercent = amount;
-    let tipButtons = document.getElementsByClassName("tip-button");
+    calculations.tip = amount; 
+
     let selected = document.getElementsByClassName("selected");
     if (selected.length > 0) {
         selected[0].classList.remove("selected");
     }    
+    element.classList.add("selected");
+
     if (element.id !== "custom-tip") {
         document.getElementById("custom-tip").value = "";
     }
-    
-    element.classList.add("selected");
+   
+    updateCalculation();
+}
+
+function updatePeople(amount){
+    calculations.people = amount;
     updateCalculation();
 }
 
 function updateCalculation(){
     let tipPerPerson = document.getElementById("tip-per-person");
     let tipTotal = document.getElementById("tip-total");
-    let bill = document.getElementById("bill").value;
-    let tipPercent = document.getElementById("tip-options").dataset.tipPercent;
-    let people = document.getElementById("number-of-people").value;
-    tipPerPerson.innerText = "$" + ((bill * tipPercent) / people).toFixed(2);
-    tipTotal.innerText = "$" + (bill * tipPercent).toFixed(2);
+    tipPerPerson.innerText = "$" + ((calculations.bill * calculations.tip) / calculations.people).toFixed(2);
+    tipTotal.innerText = "$" + (calculations.bill * calculations.tip).toFixed(2);
 }
 
 function resetCalculation(){
     let bill = document.getElementById("bill").value = "";
     let tipPercent = document.getElementById("tip-options").dataset.tipPercent = "0";
     let people = document.getElementById("number-of-people").value = 1;
+
+    calculations.bill = 0;
+    calculations.tip = 0;
+    calculations.people = 1;
     updateCalculation();
 }
