@@ -23,6 +23,7 @@
       rel="stylesheet"
     />
     <link href="/style.css" rel="stylesheet" />
+    <script src="/script.js"></script>
   </head>
 
   <body>
@@ -30,7 +31,7 @@
       <img src="/images/logo.svg" alt="SPLITTER logo" />
     </div>
     <div class="calculator">
-      <form>
+      <form onkeydown="return event.key != 'Enter';">
         <div class="form-section bill">
           <label for="bill">Bill</label>
           <div class="input-with-icon">
@@ -48,24 +49,26 @@
               autocomplete="off"
               autofocus
               maxlength="18"
-              value="0.00"
+              placeholder="0.00"
               step="any"
+              onchange="updateCalculation()"
             />
           </div>
         </div>
         <div class="form-section select-tip">
-          <label>Select Tip</label>
-          <div class="tip-options">
-            <button class="tip-button" value="0.05">5%</button>
-            <button class="tip-button" value="0.1">10%</button>
-            <button class="tip-button" value="0.15">15%</button>
-            <button class="tip-button" value="0.25">25%</button>
-            <button class="tip-button" value="0.5">50%</button>
+          <label>Select Tip %</label>
+          <div id="tip-options" data-tip-percent="0">
+            <a class="tip-button" onclick="updateTipPercent(this, '0.05')">5%</a>
+            <a class="tip-button" onclick="updateTipPercent(this, '0.1')">10%</a>
+            <a class="tip-button" onclick="updateTipPercent(this, '0.15')">15%</a>
+            <a class="tip-button" onclick="updateTipPercent(this, '0.25')">25%</a>
+            <a class="tip-button" onclick="updateTipPercent(this, '0.5')">50%</a>
             <input
               type="text"
+              id="custom-tip"
               name="custom"
               placeholder="Custom"
-              class=""
+              onchange="updateTipPercent(this, value)"
             />
           </div>
         </div>
@@ -82,9 +85,10 @@
             type="number"
             id="number-of-people"
             name="custom"
-            placeholder="1"
+            value="1"
             min="0"
             step="1"
+            onchange="updateCalculation()"
           />
           </div>          
         </div>
@@ -103,7 +107,7 @@
             </div>
             <div class="tip-output" id="tip-total">$0.00</div>
           </div>
-          <button value="Reset">Reset</button>
+          <a value="Reset" onclick="resetCalculation()">Reset</a>
         </div>
       </form>
     </div>
