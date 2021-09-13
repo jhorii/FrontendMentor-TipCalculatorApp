@@ -74,7 +74,8 @@ body {
 }
 
 .tip-button:hover {
-    color: var(--primary);
+    color: var(--very-dark-cyan);
+    background-color: var(--light-grey-cyan);
 }
 
 .tip-button.selected {
