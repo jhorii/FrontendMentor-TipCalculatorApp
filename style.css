@@ -101,7 +101,7 @@ body {
 }
 
 input {
-    outline-color: var(--very-dark-cyan);
+    outline-color: var(--primary);
 }
 
 input:focus {
