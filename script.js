@@ -43,6 +43,11 @@ function resetCalculation(){
     let tipPercent = document.getElementById("tip-options").dataset.tipPercent = "0";
     let people = document.getElementById("number-of-people").value = 1;
 
+    let selected = document.getElementsByClassName("selected");
+    if (selected.length > 0) {
+        selected[0].classList.remove("selected");
+    }    
+    
     calculations.bill = 0;
     calculations.tip = 0;
     calculations.people = 1;
