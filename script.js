@@ -34,7 +34,8 @@ function updateCalculation(){
     let tipPerPerson = document.getElementById("tip-per-person");
     let tipTotal = document.getElementById("tip-total");
     tipPerPerson.innerText = "$" + ((calculations.bill * calculations.tip) / calculations.people).toFixed(2);
-    tipTotal.innerText = "$" + (calculations.bill * calculations.tip).toFixed(2);
+    tipTotal.innerText = "$" + (calculations.bill * (1 + calculations.tip) / calculations.people).toFixed(2);
+    
 }
 
 function resetCalculation(){

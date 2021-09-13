@@ -25,11 +25,14 @@ body {
     padding: 45px;
 }
 
+
+
 .calculator {
     background-color: var(--white);
     padding: 25px;
     border: thin var(--white) solid;
     border-radius: 20px;
+    max-width: 1080px;
 }
 
 .input-with-icon {
@@ -125,7 +128,9 @@ form label {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    row-gap: 2em;
+    row-gap: 2em;    
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .calculation-container {
@@ -159,7 +164,7 @@ form label {
     font-size: 24px;
 }
 
-.calculation a {
+.reset {
     background-color: var(--primary);
     color: var(--very-dark-cyan);
     font-weight: 700;
@@ -170,7 +175,40 @@ form label {
     border: none;
     text-transform: uppercase;
     text-align: center;
+    display: block;
 }
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+
+@media (min-width: 700px) {
+    #tip-options {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    form {
+        flex-direction: row;
+    }
+
+    .inputs {
+        max-width: 50%;
+        box-sizing: border-box;
+    }
+
+    .calculation {
+        max-width: 50%; 
+              
+    }
+    
+    .reset-container {
+        box-sizing: border-box;
+        position: relative;
+        flex-grow: 4;
+    }
+
+    .reset {
+        position: absolute;
+        bottom: 0;
+    }
+}
