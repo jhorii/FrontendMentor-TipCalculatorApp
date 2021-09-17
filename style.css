@@ -116,7 +116,7 @@ form {
 }
 
 form label {
-    display: block;
+    display: inline-block;
     color: var(--darker-cyan);
     font-size: 1em;
     font-weight: 700;
@@ -177,6 +177,15 @@ form label {
     text-transform: uppercase;
     text-align: center;
     display: block;
+}
+
+#people-warning {
+    color: red;
+    float: right;
+}
+
+.people-warning-hide {
+    display: none;
 }
 
 .attribution { font-size: 11px; text-align: center; }

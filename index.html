@@ -68,6 +68,7 @@
               <input
                 type="number"
                 id="custom-tip"
+                min="0"
                 name="custom"
                 placeholder="Custom"
                 onchange="updateTipPercent(this, value / 100)"
@@ -77,6 +78,7 @@
           </div>
           <div class="form-section people">
             <label for="number-of-people">Number of People</label>
+            <span id="people-warning" class="people-warning-hide">Can't be zero</span>
             <div class="input-with-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16">
                 <path
@@ -91,7 +93,7 @@
               value="1"
               min="1"
               step="1"
-              onchange="updatePeople(value)"
+              onchange="updatePeople(this, value)"
               onClick="this.select();"
             />
             </div>          

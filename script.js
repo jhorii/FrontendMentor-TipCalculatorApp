@@ -25,9 +25,16 @@ function updateTipPercent(element, amount) {
     updateCalculation();
 }
 
-function updatePeople(amount){
+function updatePeople(element, amount){
     calculations.people = amount;
     updateCalculation();
+
+    if (element.value == 0) {
+        document.getElementById("people-warning").classList.remove("people-warning-hide");
+    }
+    else {
+        document.getElementById("people-warning").classList.add("people-warning-hide");
+    }
 }
 
 function updateCalculation(){
